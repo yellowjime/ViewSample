@@ -26,6 +26,27 @@ namespace ViewSample.Controllers
         }
         #endregion
 
+        #region 新增
+        public IActionResult Insert()
+        {
+            return View();
+        }
+
+        [HttpPost,ValidateAntiForgeryToken]
+        public async Task<IActionResult> Insert(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Employee.Add(employee);
+                await context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(employee);
+        }
+
+
+        #endregion
+
 
     }
 }

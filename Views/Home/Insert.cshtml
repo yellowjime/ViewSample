@@ -1,0 +1,21 @@
+﻿@model ViewSample.Models.DB.Employee;
+@{
+    ViewData["Title"] = "Insert";
+}
+
+<h1>Insert</h1>
+<a asp-action="Index">返回列表</a>
+<form asp-action="Insert">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name" style="color:red"></span>
+    <br>
+    <label asp-for="Address"></label>
+    <input asp-for="Address" />
+    <span asp-validation-for="Address" style="color:red"></span>
+    <br>
+    <label asp-for="Birthday"></label>
+    <input asp-for="Birthday" />
+    <span asp-validation-for="Birthday" style="color:red"></span>
+    <input type="submit" value="新增" />
+</form>
