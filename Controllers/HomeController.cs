@@ -3,14 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ViewSample.Models.DB;
+using Microsoft.EntityFrameworkCore;
 
 namespace ViewSample.Controllers
 {
+
+
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly Context context;
+
+        public HomeController (Context _context)
         {
-            return View();
+            context = _context;
         }
+        #region 讀取全部
+
+        public async Task<IActionResult> Index()
+        {
+            return View(await context.Employee.ToListAsync());
+        }
+        #endregion
+
+
     }
 }
