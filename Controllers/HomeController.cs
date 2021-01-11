@@ -93,5 +93,33 @@ namespace ViewSample.Controllers
         }
 
         #endregion
+
+
+        #region 刪除
+        [Route("Delete/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var employee = await context.Employee.FindAsync(id);
+            if (employee == null) { return NotFound(); }
+            return View(employee);
+        }
+
+        [Route("Delete/{id}"),HttpPost,ValidateAntiForgeryToken,ActionName("Delete")]
+        public async Task<IActionResult> DeleteInfo(int id)
+        {
+            var employee = await context.Employee.FindAsync(id);
+
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            context.Employee.Remove(employee);
+            await context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        #endregion
     }
 }

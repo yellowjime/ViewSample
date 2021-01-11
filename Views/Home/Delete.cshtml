@@ -1,0 +1,29 @@
+﻿@model ViewSample.Models.DB.Employee;
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h1>是否刪除此筆資料</h1>
+<a asp-action="Index">返回列表</a>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label asp-for="Name"></label>
+        @Html.DisplayFor(m => m.Name)
+    </div>
+
+
+    <div>
+        <label asp-for="Address"></label>
+        @Html.DisplayFor(m => m.Address)
+    </div>
+
+    <div>
+        <label asp-for="Birthday"></label>
+        @Html.DisplayFor(m => m.Birthday)
+    </div>
+    <input type="submit" value="刪除" />
+</form>
+
