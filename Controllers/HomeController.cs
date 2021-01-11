@@ -47,6 +47,36 @@ namespace ViewSample.Controllers
 
         #endregion
 
+        #region 編輯
+        [Route("Edit/{id}")]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var employee = await context.Employee.FindAsync(id);
 
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return View(employee);
+        }
+        [Route("Edit/{id}"),HttpPost,ValidateAntiForgeryToken]
+        
+        public async Task<IActionResult> Edit(int id,Employee employee)
+        {
+            if (id != employee.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                context.Update(employee);
+                await context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(employee);
+        }
+
+        #endregion
     }
 }

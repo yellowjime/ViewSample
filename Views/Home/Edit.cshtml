@@ -1,0 +1,24 @@
+﻿@model ViewSample.Models.DB.Employee;
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>編輯</h1>
+<a asp-action="Index">返回列表</a>
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name" style="color:red"></span>
+    <br>
+    <label asp-for="Address"></label>
+    <input asp-for="Address" />
+    <span asp-validation-for="Address" style="color:red"></span>
+    <br>
+    <label asp-for="Birthday"></label>
+    <input asp-for="Birthday" />
+    <span asp-validation-for="Birthday" style="color:red"></span>
+    <input type="submit" value="儲存" />
+</form>
+
+

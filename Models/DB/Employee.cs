@@ -16,6 +16,6 @@ namespace ViewSample.Models.DB
         [Required(ErrorMessage = "不可為空"), Display(Name = "地址"), StringLength(100, ErrorMessage = "不可超過100字"), MinLength(2, ErrorMessage = "最少需2字")]
         public string Address { get; set; }
         [Required(ErrorMessage ="不可為空"),Display(Name="生日"),DataType(DataType.Date)]
-        public DateTime Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
     }
 }

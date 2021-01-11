@@ -20,6 +20,9 @@
                 <td>@Html.DisplayFor(m => item.Name)</td>
                 <td>@Html.DisplayFor(m => item.Address)</td>
                 <td>@Html.DisplayFor(m => item.Birthday)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">編輯</a>
+                </td>
             </tr>
         }
     </tbody>
