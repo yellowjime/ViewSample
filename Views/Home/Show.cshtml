@@ -1,0 +1,30 @@
+﻿@model ViewSample.Models.DB.Employee;
+@{
+    ViewData["Title"] = "Show";
+}
+
+<h1>顯示詳細資訊</h1>
+<a asp-action="Index">返回列表</a>
+<div>
+    <label asp-for="Name"></label>
+    @Html.DisplayFor(m => m.Name)
+</div>
+
+
+<div>
+    <label asp-for="Address"></label>
+    @Html.DisplayFor(m => m.Address)
+</div>
+
+<div>
+    <label asp-for="Birthday"></label>
+    @Html.DisplayFor(m => m.Birthday)
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">編輯</a>
+</div>
+
+
+
+
+

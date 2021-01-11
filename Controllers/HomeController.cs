@@ -78,5 +78,20 @@ namespace ViewSample.Controllers
         }
 
         #endregion
+
+        #region 顯示
+        public async Task<IActionResult> Show(int id)
+        {
+            var employee = await context.Employee.FindAsync(id);
+
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            return View(employee);
+        }
+
+        #endregion
     }
 }
